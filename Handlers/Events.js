@@ -6,6 +6,7 @@ const {promisify} = require("util");
 const { glob} = require("glob");
 const PG = promisify(glob);
 const {Ascii} = require("ascii-table");
+const AsciiTable = require("ascii-table/ascii-table");
 function loadEvents(client){
         const ascii= require("ascii-table");
     const fs =require("fs");
@@ -42,7 +43,7 @@ function loadEvents(client){
 module.exports = {loadEvents}
 
 module.exports =async(client )=>{
-    const Table = new Ascii("Evenement Chargé");
+    const Table = new AsciiTable("Evenement Chargé");
     (await PG(`${process.cwd()}/Events/*/*.js`)).map(async(file)=>{
         const event = require(file);
         if(!Events.includes(event.name) || !event.name){
