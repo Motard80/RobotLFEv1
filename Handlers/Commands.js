@@ -1,6 +1,6 @@
 const { Pemrs }=  require("../Validation/permissions");
-const { Client, Emoji, Role} = require("discord.js");
-const {promisify} = require("discord.js");
+const { Client} = require("discord.js");
+const {promisify} = require("util");
 const { glob} = require("glob");
 const {Ascii} = require("ascii-table");
 const PG = promisify(glob);
@@ -11,7 +11,7 @@ const PG = promisify(glob);
  */
 
 module.exports =async(client) =>{
-    const Table =new Ascii("Commandes chargées");
+    const Table = new Ascii("Commande Chargées");
 
     CommandsArray =[];
     (await PG(`${process.cwd()}/Commands/*/*.js`)).map(async (flie) =>{

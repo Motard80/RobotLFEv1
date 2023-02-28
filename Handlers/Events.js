@@ -1,3 +1,11 @@
+
+const {Events }= require("../Validation/EventNames");
+const { Pemrs }=  require("../Validation/permissions");
+const { Client} = require("discord.js");
+const {promisify} = require("util");
+const { glob} = require("glob");
+const PG = promisify(glob);
+const {Ascii} = require("ascii-table");
 function loadEvents(client){
         const ascii= require("ascii-table");
     const fs =require("fs");
@@ -32,3 +40,23 @@ function loadEvents(client){
     return  console.log(table.toString(), "\n Event chargé.")
 }
 module.exports = {loadEvents}
+
+module.exports =async(client)=>{
+    const Table = new Ascii("Evenement Chargé");
+    (await PG(`${process.cwd()}/Events/*/*.js`)).map(async(file)=>{
+        const event = require(file);
+        if(!Events.includes(event.name) || !event.name){
+            const L = file.split("/");
+            await Table.addRow(`${event.name || "MANQUANT"}`, `⛔ - Le nom de l'évenement est invalide ou manquant : ${L[6]+`/`+ L[7] }` );
+            return;
+
+        }
+        if(event.once){
+            client.once(event.name, (...args)=>event.execute(...args, client));
+        }else{
+            client.on(event.name, (...args)=>event.execute(...args, client));
+        }
+        await Table.addRow(event.name, "✅ SUCCES")
+    });
+    console.log(Table.toString());
+} 
