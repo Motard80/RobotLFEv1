@@ -2,19 +2,20 @@ const { Pemrs }=  require("../Validation/permissions");
 const { Client} = require("discord.js");
 const {promisify} = require("util");
 const { glob} = require("glob");
-const {Ascii} = require("ascii-table");
 const PG = promisify(glob);
+const { Ascii } = require("ascii-table");
 
 /**
  * 
  * @param {Client} client 
  */
 
-module.exports =async(client) =>{
-    const Table = new Ascii("Commande Chargées");
+module.exports =async (client) => {
+    const Ascii= require('ascii-table');
+   const Table = new Ascii("Commande Chargées");
 
     CommandsArray =[];
-    (await PG(`${process.cwd()}/Commands/*/*.js`)).map(async (flie) =>{
+    (await PG (`${process.cwd()}/Commands/*/*.js`)).map(async (flie) =>{
         const command = require(file);
 
         if(!comand.name)

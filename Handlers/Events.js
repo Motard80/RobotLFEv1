@@ -9,7 +9,7 @@ const {Ascii} = require("ascii-table");
 function loadEvents(client){
         const ascii= require("ascii-table");
     const fs =require("fs");
-    const table = new ascii().setHeading("Events", "Status");
+    const table = new Ascii().setHeading("Events", "Status");
 
     const folders =fs.readdirSync(`./Events`);
     for (const folder of folders ){
@@ -41,7 +41,7 @@ function loadEvents(client){
 }
 module.exports = {loadEvents}
 
-module.exports =async(client)=>{
+module.exports =async(client )=>{
     const Table = new Ascii("Evenement Chargé");
     (await PG(`${process.cwd()}/Events/*/*.js`)).map(async(file)=>{
         const event = require(file);
