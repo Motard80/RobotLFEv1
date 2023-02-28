@@ -1,5 +1,3 @@
-const { CommandInteraction, Client } = require("discord.js");
-
 const {Client, CommandInteraction, MessageEmbred}= ("discord.js");
 module.exports={
     name: "interactionCreate",
@@ -17,7 +15,7 @@ module.exports={
                     .setDescription("⛔- Une erreur est survenu lors de l'éxécution de la commande.")
                
             ]}) && Client.commands.delete(interaction.commandName);
-            
+
             command.execute(interaction, client)
         }
      
