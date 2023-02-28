@@ -1,6 +1,5 @@
 
 const {Events }= require("../Validation/EventNames");
-const { Pemrs }=  require("../Validation/permissions");
 const { Client} = require("discord.js");
 const {promisify} = require("util");
 const { glob} = require("glob");
@@ -60,4 +59,4 @@ module.exports =async(client )=>{
         await Table.addRow(event.name, "✅ SUCCES")
     });
     console.log(Table.toString());
-} 
+}
