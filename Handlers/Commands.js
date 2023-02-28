@@ -1,4 +1,4 @@
-const { Pemrs }=  require("../Validation/permissions");
+const { Perms }=  require("../Validation/permissions");
 const { Client} = require("discord.js");
 const {promisify} = require("util");
 const { glob} = require("glob");
@@ -11,14 +11,14 @@ const { Ascii } = require("ascii-table");
  */
 
 module.exports =async (client) => {
-    const Ascii= require('ascii-table');
+    
    const Table = new Ascii("Commande Chargées");
 
     CommandsArray =[];
     (await PG (`${process.cwd()}/Commands/*/*.js`)).map(async (flie) =>{
         const command = require(file);
 
-        if(!comand.name)
+        if(!command.name)
         return Table.addRow(file.split("/")[7], "⛔ - ERREUR", "Nom manquant")
         
         if(!command.context && !comand.description)
