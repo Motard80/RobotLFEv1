@@ -1,0 +1,16 @@
+{
+  "name": "robotlfev1",
+  "version": "0.0.1",
+  "description": "Bot pour la communauté LFE by Arma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LFE by Motard",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "discord.js": "^14.7.1",
+    "glob": "^9.0.1"
+  }
+}
