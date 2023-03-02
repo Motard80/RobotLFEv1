@@ -1,41 +1,24 @@
-const {Client, ActionRowBuilder, InteractionType} = require('discord.js');
+const {Client, ActionRowBuilder, ButtonBuilder, ButtonStyle, InteractionType} = require('discord.js');
 const { Token}= require("./Config.json");
+const fs = require('fs');
+// appel au dossier commads et au fichier se trouvant de dans.
+const CommandsFiles = fs.readdirSync('./Commands').filter(file => file.endsWith('.js'));
+//apel au dossier Events et les fichiers qui seront utilisées
+const eventsiles = fs.readdirSync('./Events').filter(file => file.endsWith('.js'));
 const client= new Client({
     intents:[3276799
     ]
 })
-var prefix = "!";
-client.on('ready', () => {
-    console.log(` ${client.user.tag}suis connecter!`);
-});
- client.on('messageCreate', async message => {
-if(message.content==  prefix +'Help') {
-    message.reply('Les commandes disponibles sont: ping, Help, Id, Name, ');
-
-}if(message.content==  prefix +'Play') {
-    message.reply('Le systeme de musique non disponible');
-}
-if(message.content==  prefix +'Id') {
-    message.reply(message.author.id, message.author.username)
-}
-if(message.content==  prefix +'Name') {
-    message.reply(message.author.username)
-}
-    /*
-if(message.content==  prefix +'Avatar') {
-
-message.reply(message.user.displayAvatarURL)
-
-}*/
-
-
- })      
- client.on('interactionCreate',  interaction => {
-    if(interaction.type== InteractionType.ApplicationCommand){
-        if(interaction.commandName == "pdp"){
-            interaction.channel.send(interaction.member.displayAvatarURL())
-        }
+  for(const file of eventsiles){
+  const event = require(`./Events/${file}`);
+    if(event.once ==true){
+    client.once(event.name, (...args) => event.execute(...args, client))
+    console.log("L'event "+event.name+" a été ajouté à la liste des évenments")
+    }else{
+    client.on(event.name, (...args) => event.execute(...args, client))
+    
+    console.log("L'event "+event.name+" a été ajouté à la liste des évenments")
     }
- })     
+}
  client.login(Token);
           console.log(`Test`);  

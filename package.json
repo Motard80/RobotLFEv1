@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Motard80/RobotLFEv1#readme",
   "dependencies": {
-    "discord.js": "^14.7.1"
+    "discord.js": "^14.7.1",
+    "fs": "^0.0.1-security"
   }
 }
