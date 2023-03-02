@@ -1,16 +1,22 @@
 {
   "name": "robotlfev1",
   "version": "0.0.1",
-  "description": "Bot pour la communauté LFE by Arma",
+  "description": "Bot By LFE",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Motard80/RobotLFEv1.git"
+  },
   "author": "LFE by Motard",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Motard80/RobotLFEv1/issues"
+  },
+  "homepage": "https://github.com/Motard80/RobotLFEv1#readme",
   "dependencies": {
-    "ascii-table": "^0.0.9",
-    "discord.js": "^14.7.1",
-    "glob": "^9.0.1"
+    "discord.js": "^14.7.1"
   }
 }
