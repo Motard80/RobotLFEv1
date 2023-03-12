@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+//Ajout des membres dans le fichier json
 function ListMember(message, idServeur) {
     const dataPath = path.join(__dirname, '../Members', 'Members.json');
     const membersData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -24,6 +25,7 @@ function ListMember(message, idServeur) {
         message.channel.send('Aucun membre trouvé pour ce serveur.');
     }
 }
+//Mise à jours du tableau des membres
 function MajMember(member) {
     if (!member || !member.user) {
       console.error('Invalid member object:', member);
@@ -62,8 +64,13 @@ function MajMember(member) {
   
     fs.writeFileSync(dataPath, JSON.stringify(membersData, null, 2));
   }
-  
+  function deleteMembersTableau() {
+    const dataPath = path.join(__dirname, '../Members', 'Members.json');
+    fs.writeFileSync(dataPath, JSON.stringify([], null, 2));
+  }
+
   module.exports={
     ListMember, 
-    MajMember
+    MajMember,
+    deleteMembersTableau
 };

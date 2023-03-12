@@ -1,13 +1,16 @@
 // Importer le module path
-const path = require('path');
-const {
-  Client,
-  MessageEmbed,
-} = require("discord.js");
-const fs = require('fs');
+const path = require("path");
+const { Client, MessageEmbed } = require("discord.js");
+const fs = require("fs");
 const client = new Client({ intents: 3276799 });
 const MsgCleaner = require("../Fonctions/MsgCleanup.js");
-const { token, prefix, RoleAformerTest, RoleAformerProd, RoleTestDEV } = require("../Config/config.json");
+const {
+  token,
+  prefix,
+  RoleAformerTest,
+  RoleAformerProd,
+  RoleTestDEV,
+} = require("../Config/config.json");
 const Fonctions = require("../Fonctions/fonction.js");
 const KickMember = require("../Fonctions/kickMembers.js");
 const InactifListe = require("../Fonctions/InactifListe.js");
@@ -19,24 +22,24 @@ const ListMembersGuild = require("../Fonctions/ListMembersGuilds");
 client.on("messageCreate", async (message) => {
   // Un message est posté
   if (message.author.bot) return; // Ignore si message bot
-
-  
 });
 function getMembersInfo(message) {
   // Récupérer la liste des membres du serveur
-  const guild = client.guilds.cache.get('1069915992848875590');
-   // Id : 959380556582375464 ->Test Bot 7 LFE 
+  const guild = client.guilds.cache.get("1069915992848875590");
+  // Id : 959380556582375464 ->Test Bot 7 LFE
   //Id: 1077880541161996390 ->TestBot
-  //Id : 1069915992848875590 ->LFE-Dev 
-  //ID : 814235304806056007 -> 7éme LFE 
-   if (!guild) {
-    console.log(`Le bot n'est pas connecté au serveur avec l'ID ${'1069915992848875590'}.`);
+  //Id : 1069915992848875590 ->LFE-Dev
+  //ID : 814235304806056007 -> 7éme LFE
+  if (!guild) {
+    console.log(
+      `Le bot n'est pas connecté au serveur avec l'ID ${"1069915992848875590"}.`
+    );
     return;
   }
-  guild.members.fetch().then(members => {
+  guild.members.fetch().then((members) => {
     // Récupérer les informations de chaque membre
-    const membersData = members.map(member => ({
-      serveur:guild.name,
+    const membersData = members.map((member) => ({
+      serveur: guild.name,
       id: member.user.id,
       tag: member.user.tag,
       avatar: member.user.displayAvatarURL({ dynamic: true }),
@@ -44,13 +47,15 @@ function getMembersInfo(message) {
       username: member.user.username,
       idServeur: member.guild.id,
       joinedAt: member.joinedAt,
-      roles: member.roles.cache.filter(role =>role.name !== '@everyone').map(role => role.name),
+      roles: member.roles.cache
+        .filter((role) => role.name !== "@everyone")
+        .map((role) => role.name),
     }));
 
     // Ecrire les données dans un fichier JSON
-    const dataPath = path.join(__dirname, '../Members', 'Members.json');
+    const dataPath = path.join(__dirname, "../Members", "Members.json");
     fs.writeFileSync(dataPath, JSON.stringify(membersData, null, 2));
-    message.channel.send('Le fichier Members.json a été mis à jour.');
+    message.channel.send("Le fichier Members.json a été mis à jour.");
   });
 }
 //Commandes du bot
@@ -90,11 +95,32 @@ client.on(
       console.log(channelId);
       const channel = client.channels.cache.get(channelId);
       MsgCleaner.clearChannel(channel);
-    }else if (message.content.startsWith(prefix + "InactifListe")) {
+      message.channel.send(
+        "Le channel " + channel.name + " a été supprimé avec succès."
+      );
+    } else if (message.content.startsWith(prefix + "Clear")) {
+      // Vérifier si l'utilisateur a les permissions nécessaires pour supprimer les messages
+      if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+        return message.reply(
+          "Vous n'avez pas les permissions nécessaires pour supprimer les messages!"
+        );
+      }
+
+      // Supprimer tous les messages du channel
+      try {
+        await MsgCleaner.clearChannel(message.channel);
+        message.channel.send("Tous les messages du channel ont été supprimés!");
+      } catch (error) {
+        console.error(error);
+        message.channel.send(
+          "Une erreur s'est produite lors de la suppression des messages!"
+        );
+      }
+    } else if (message.content.startsWith(prefix + "InactifListe")) {
       // Séparation de la commande et des arguments
       const args = message.content.slice(prefix.length).trim().split(/ +/);
       const command = args.shift().toLowerCase();
-  
+
       // Appel de la fonction InactifListe si la commande est "InactifListe"
       if (command === "inactifliste") {
         InactifListe.execute(message, args);
@@ -118,49 +144,120 @@ client.on(
           );
           return member.lastMessageAt < twoMonthsAgo;
         });
-  
+
       // Exécute la fonction KickInactif pour expulser les membres inactifs
       await KickMember.execute(message, inactiveMembers);
-    }else if (message.content.startsWith(prefix + "listeAforme")) {
-     message.channel.send("Test1");
+    } else if (message.content.startsWith(prefix + "listeAforme")) {
+      message.channel.send("Test1");
       const roleIdTest = "10789950869368996";
       const roleIdDev = "1084126506881650688";
       const roleIdProd = "10789950869368998";
       const moinsDe3Semaines = 1000 * 60 * 60 * 24 * 21; // 21 jours en millisecondes
       const moinsDUnMois = 1000 * 60 * 60 * 24 * 30; // 30 jours en millisecondes
       const moinsDeuxMois = 1000 * 60 * 60 * 24 * 60; // 60 jours en millisecondes
-      const liste = ListAformer.listeAformé(roleIdTest || roleIdDev || roleIdProd, moinsDe3Semaines, moinsDUnMois, moinsDeuxMois);
-      if (liste.trim() !== '') {
-      message.channel.send(liste);
-      console.log(liste);
-    } else {
-      message.channel.send('Le contenu du message est vide, veuillez entrer un message valide.');
-      console.log('Le contenu du message est vide, ');
-    }
-    }else  if (message.content.startsWith(prefix + "ListAFormer")) {
-
+      const liste = ListAformer.listeAformé(
+        roleIdTest || roleIdDev || roleIdProd,
+        moinsDe3Semaines,
+        moinsDUnMois,
+        moinsDeuxMois
+      );
+      if (liste.trim() !== "") {
+        message.channel.send(liste);
+        console.log(liste);
+      } else {
+        message.channel.send(
+          "Le contenu du message est vide, veuillez entrer un message valide."
+        );
+        console.log("Le contenu du message est vide, ");
+      }
+    } else if (message.content.startsWith(prefix + "ListAFormer")) {
       // Appel de la fonction depuis le fichier index.js
       const RoleAformerTest = "10789950869368996";
       const RoleAformerProd = "8782560764521554";
       const RoleTestDEV = "1069936204772024320";
-      const MemberAFormer=require("../Fonctions/ListAFormer.js");
-      const role = message.guild.roles.cache.get(RoleAformerTest|| RoleAformerProd|| RoleTestDEV);
+      const MemberAFormer = require("../Fonctions/ListAFormer.js");
+      const role = message.guild.roles.cache.get(
+        RoleAformerTest || RoleAformerProd || RoleTestDEV
+      );
       const members = MemberAFormer.MemberAFormer(role);
-      
-      let messageContent = `**Membres ayant le rôle ${role.name} depuis moins de deux semaines :**\n${members.lessThanTwoWeeks.join(', ') || 'Aucun membre.'}\n\n`;
-      messageContent += `**Membres ayant le rôle ${role.name} depuis plus de deux semaines et moins d'un mois :**\n${members.betweenTwoWeeksAndOneMonth.join(', ') || 'Aucun membre.'}\n\n`;
-      messageContent += `**Membres ayant le rôle ${role.name} depuis plus d'un mois :**\n${members.moreThanOneMonth.join(', ') || 'Aucun membre.'}`;
-      
+
+      let messageContent = `**Membres ayant le rôle ${
+        role.name
+      } depuis moins de deux semaines :**\n${
+        members.lessThanTwoWeeks.join(", ") || "Aucun membre."
+      }\n\n`;
+      messageContent += `**Membres ayant le rôle ${
+        role.name
+      } depuis plus de deux semaines et moins d'un mois :**\n${
+        members.betweenTwoWeeksAndOneMonth.join(", ") || "Aucun membre."
+      }\n\n`;
+      messageContent += `**Membres ayant le rôle ${
+        role.name
+      } depuis plus d'un mois :**\n${
+        members.moreThanOneMonth.join(", ") || "Aucun membre."
+      }`;
+
       message.channel.send(messageContent);
-    }else if(message.content.startsWith(prefix + "AddMembersList")){
+    } else if (message.content.startsWith(prefix + "AddMembersList")) {
       //appel a la fonction uniquement sur la commande addMembersList
       getMembersInfo(message);
-    }else if(message.content.startsWith(prefix + "MembersList")){
-       const idServeur = message.guild.id;
-       ListMembersGuild.ListMember(message, idServeur);
-    }else if(message.content.startsWith(prefix + "MAJMembersList")){
+    } else if (message.content.startsWith(prefix + "MembersList")) {
+      const idServeur = message.guild.id;
+      ListMembersGuild.ListMember(message, idServeur);
+    } else if (message.content.startsWith(prefix + "MAJMembersList")) {
       ListMembersGuild.MajMember(message);
       message.channel.send("Membres ajoutés et role mis à jour");
+    } else if (message.content.startsWith(prefix + "deleteMembersList")) {
+      console.log(message.content);
+      message.channel.send("Code serais");
+    } else if (
+      message.content.startsWith(prefix + "ManthysKitHelldrigeLooping")
+    ) {
+      message
+        .reply(
+          "Es-tu sûr(e) de vouloir supprimer les fichiers JSON contenant les membres du serveur ?"
+        )
+        .then(async (confirmationMessage) => {
+          await confirmationMessage.react("✅");
+          await confirmationMessage.react("❌");
+
+          const filter = (reaction, user) =>
+            ["✅", "❌"].includes(reaction.emoji.name) &&
+            user.id === message.author.id;
+          const collector = confirmationMessage.createReactionCollector({
+            filter,
+            time: 15000,
+          });
+
+          const ListMembersGuild = require("../Fonctions/ListMembersGuilds");
+          collector.on("collect", async (reaction) => {
+            if (reaction.emoji.name === "✅") {
+              try {
+                await ListMembersGuild.deleteMembersTableau();
+                message.reply(
+                  "Les fichiers JSON contenant les membres ont été supprimés."
+                );
+              } catch (error) {
+                console.error(error);
+                message.reply(
+                  "Une erreur est survenue lors de la suppression des fichiers JSON contenant les membres."
+                );
+              }
+            } else {
+              message.reply("Suppression annulée.");
+            }
+
+            collector.stop();
+          });
+
+          collector.on("end", (collected, reason) => {
+            if (reason === "time") {
+              confirmationMessage.reply(
+                "Le temps imparti pour répondre a expiré."
+              );
+            }
+          });
+        });
     }
   },
   "message",
@@ -228,12 +325,11 @@ client.on(
   }
 );
 
-
 //Connexion du bot
 client.on("ready", () => {
   console.log(`Bot connecté ${client.user.tag}`);
   console.log(`Je suis membre de  ${client.guilds.cache.size} Serveurs`);
   //once.getMembersInfo();
-  });
+});
 
 client.login(token);
