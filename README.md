@@ -14,3 +14,4 @@ il contien divers fonction que vous pouvez retrouver en tapant la commande !Help
 Il sera ammélioré au fure et à mesure
 
 BOT LFE_Arma3 By Motard & Kit
+PS bien entedu je considére que vous avez déja créer un bot depuis la platforme discord
