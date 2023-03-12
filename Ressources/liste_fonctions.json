@@ -1,0 +1,111 @@
+{
+    "Bienvenue": {
+        "Contenue": "Bienvenue sur ### dans la fonction de Recrue LFE de la lfe!",
+        "Description": "La commande permet d'envoyer le message de bienvenue au nouveau Membre",
+        "Commande": "!Bienvenue@membre",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Operateur": {
+        "Contenue": "Bienvenue, ### Dans la fonction de Operateur de la lfe!",
+        "Description": "La commande permet d'envoyer le message de bienvenue au nouveau opérateur",
+        "Commande": "!Operateur@member",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Veteran": {
+        "Contenue": "Bienvenue, ### Tu fais désormais partie des vétérans de La LFE",
+        "Description": "La commande permet d'envoyer le message de bienvenue au nouveau Veteran",
+        "Commande": "!veteran@member",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Formateur": {
+        "Contenue": "Bienvenue, ### tu fais désormais partie de la ligue des Formateurs",
+        "Description": "La commande permet d'envoyer le message de bienvenue au nouveau Formateur",
+        "Commande": "!formateur@member",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Recruteur": {
+        "Contenue": "Bienvenue, ### tu fais désormais partie des recruteurs de La LFE",
+        "Description": "La commande permet d'envoyer le message de bienvenue au nouveau Recruteur",
+        "Commande": "!recruteur@member",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Staff": {
+        "Contenue": "Bienvenue, ### Dans la fonction de Staff à lfe!",
+        "Description": "La commande permet d'envoyer le message de bienvenue au nouveau Staff",
+        "Commande": "!Staff@member",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Modifcation": {
+        "Contenue": "Modification d'un message ou ajout d'un nouveau message",
+        "Description": "Commande qui permet D'ajouter ou modifier un message",
+        "Commande": "!Mofication",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Help": {
+        "Contenue": "id staff, id veteran, id formateur, id recruteur, id operateur,",
+        "Description": "Commande qui permet d'afficher la liste des commandes",
+        "Commande": "!Help",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "Recrue": {
+        "Contenue": "Bienvenue, ### Tu fais désormé partie de la LFE",
+        "Description": "Commande qui permet d'afficher la liste des commandes",
+        "Commande": "!Recrue@membre",
+        "Reponse" : "Message de bienvenue envoyé au membre"
+    },
+    "listeMembres": {
+        "Contenue": "Liste des membres ",
+        "Description": "Commande qui permet d'afficher la liste des Membres",
+        "Commande": "!listeMembres",
+        "Reponse" : "Liste des membres éditées"
+    },
+    "Listerole": {
+        "Contenue": "Liste des Role ",
+        "Description": "Commande qui permet d'afficher la liste des Roles avec les membres qui l'ont",
+        "Commande": "!listeRoles",
+        "Reponse" : "Liste des Roles avec les membres qui l'ont"
+    },
+    "MsgClean": {
+        "Contenue": "Efface les 100 derniers messages du channel",
+        "Description": "Efface les 100 dernier messages ou est executer la commande datan de moin de 14 jours",
+        "Commande": "!MsgClean",
+        "Reponse" : ""
+    },
+    "ListInactif": {
+        "Contenue": "Liste des inactifs ayant le role nouveau arrivant ayant \n le role nouveau arrivant depuis plus de deux mois",
+        "Description": "Liste des membres ayant le role nouveau arrivant ayant \n le role nouveau arrivant depuis plus de deux mois",
+        "Commande": "!InactifListe",
+        "Reponse" : ""
+    },
+    "KickMembreArrivant": {
+        "Contenue": "Kick d'un membre arrivant ayant le role nouveau arrivant depuis plus de 2 mois\n la liste des membres est récupere par la commande !newarrivant",
+        "Description": "Kick Les membres arrivant ayant le role nouveau arrivant depuis plus de 2 mois\n la liste des membres est récupere par la commande !newarrivant",
+        "Commande": "!KickList",
+        "Reponse" : ""
+    },
+    "AddMembersList": {
+        "Contenue": "",
+        "Description": "Permet de récuperé la liste des membres du serveur",
+        "Commande": "!AddMembersList",
+        "Reponse" : ""
+    },
+    "ListeMembre": {
+        "Contenue": "",
+        "Description": "Liste complétes des membres dans le dossier Json enregistré",
+        "Commande": "!MembersList",
+        "Reponse" : ""
+    },
+    "Mise_a_jour": {
+        "Contenue": "",
+        "Description": "Mise a jour de la liste des membres dans le dossier Json enregistré",
+        "Commande": "!MAJMembersList",
+        "Reponse" : ""
+    },
+    " ": {
+        "Contenue": "",
+        "Description": "",
+        "Commande": "",
+        "Reponse" : ""
+    }
+
+}

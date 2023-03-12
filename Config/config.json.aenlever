@@ -1,0 +1,14 @@
+{
+    "token": "Token du bot a remettre",
+    "prefix": "!",
+  "tokenGoogle": "",
+  "ID_DU_SERVEUR_DISCORD_DEV": "1077880541161996390",
+  "ID_DU_SERVEUR_DISCORD": "1069915992848875590",
+  "RoleNouvelleArrivantDevLFE": "1083494292133261312",
+  "RoleNouvelleArrivantDevTest": "1083494292133261312",
+  "RoleNouvelleArrivant": "814237934998913084",
+  "RoleStaffArmaDevLFE": "1078995086936899614",
+  "RoleStaffArma": "878256076452155462",
+  "RoleStaffArmaDevTest": "1078995086936899614"
+  }
+  

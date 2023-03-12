@@ -1,0 +1,11 @@
+{
+    "ExempleEvent": {
+        "Type": "FormationEventTest ",
+        "Date": "9 mars 2023",
+        "Heure": "20h30",
+        "Titre" : "Teste agenda",
+        "Description" : "Exemple de description",
+        "Formateur":"",
+        "Zeus": "Le dieux du stade"
+    }
+}
