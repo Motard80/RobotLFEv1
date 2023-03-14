@@ -101,6 +101,12 @@
         "Commande": "!MAJMembersList",
         "Reponse" : ""
     },
+    "ListMembersRole": {
+        "Contenue": "",
+        "Description": "Etablie la liste des roles du serveur  ",
+        "Commande": "!ListMembersRole",
+        "Reponse" : ""
+    },
     " ": {
         "Contenue": "",
         "Description": "",

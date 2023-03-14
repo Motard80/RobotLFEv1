@@ -17,6 +17,8 @@ const InactifListe = require("../Fonctions/InactifListe.js");
 const ListAformer = require("../Fonctions/ListAFormer.js");
 const Ressources = require("../Ressources/liste_fonctions.json");
 const ListMembersGuild = require("../Fonctions/ListMembersGuilds");
+const ListMembersRole= require("../Fonctions/ListAFormer");
+const DemarerBot= require("../Fonctions/Launch");
 
 //commande de test de fonctionnement des differentes fonctions
 client.on("messageCreate", async (message) => {
@@ -58,6 +60,17 @@ function getMembersInfo(message) {
     message.channel.send("Le fichier Members.json a été mis à jour.");
   });
 }
+client.on('messageCreate', (message) => {
+  if (message.content.startsWith(prefix + "Lance") ) {
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+
+  if (command === 'lance') {
+    DemarerBot.launch(message);
+  }
+}
+});
 //Commandes du bot
 client.on(
   "messageCreate",
@@ -68,7 +81,7 @@ client.on(
     if (message.content.startsWith(prefix + "Staff")) {
       Fonctions.EnvoieMessagePredef(message, Ressources.Staff); // Message staff
     } else if (message.content.startsWith(prefix + "Bienvenue")) {
-      Fonctions.EnvoieMessagePredef(message, Ressources.Bienvenue); // Message de bienvenue
+      Fonctions.EnvoieMessagePredef(message, Ressources.Bienvenue);
     } else if (message.content.startsWith(prefix + "Operateur")) {
       Fonctions.EnvoieMessagePredef(message, Ressources.Operateur); // message au nouveau opérateur
     } else if (message.content.startsWith(prefix + "Veteran")) {
@@ -81,6 +94,9 @@ client.on(
       Fonctions.EnvoieMessagePredef(message, Ressources.Recrue); // Recrue
     } else if (message.content.startsWith(prefix + "SOS")) {
       Fonctions.aide(message, Ressources); // Message d'aide
+    } else if(message.content.startsWith(prefix + "TestFiles")){
+      ListMembersRole.saveRoles(message.guild);
+
     } else if (message.content.startsWith(prefix + "listeMembres")) {
       Fonctions.ListeMembres(message); // Liste des membres MY.listeMembres
     } else if (message.content.startsWith(prefix + "listeRoles")) {
@@ -97,25 +113,11 @@ client.on(
       MsgCleaner.clearChannel(channel);
       message.channel.send(
         "Le channel " + channel.name + " a été supprimé avec succès."
-      );
-    } else if (message.content.startsWith(prefix + "Clear")) {
-      // Vérifier si l'utilisateur a les permissions nécessaires pour supprimer les messages
-      if (!message.member.permissions.has("MANAGE_MESSAGES")) {
-        return message.reply(
-          "Vous n'avez pas les permissions nécessaires pour supprimer les messages!"
-        );
-      }
-
-      // Supprimer tous les messages du channel
-      try {
-        await MsgCleaner.clearChannel(message.channel);
-        message.channel.send("Tous les messages du channel ont été supprimés!");
-      } catch (error) {
-        console.error(error);
-        message.channel.send(
-          "Une erreur s'est produite lors de la suppression des messages!"
-        );
-      }
+      ).then(msg => {
+        setTimeout(() => {
+          msg.delete();
+        }, 120000); // 5 minutes en millisecondes
+      }); ;
     } else if (message.content.startsWith(prefix + "InactifListe")) {
       // Séparation de la commande et des arguments
       const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -170,34 +172,14 @@ client.on(
         );
         console.log("Le contenu du message est vide, ");
       }
-    } else if (message.content.startsWith(prefix + "ListAFormer")) {
+    } else if (message.content.startsWith(prefix + "ListMembersRole")) {
       // Appel de la fonction depuis le fichier index.js
-      const RoleAformerTest = "10789950869368996";
-      const RoleAformerProd = "8782560764521554";
-      const RoleTestDEV = "1069936204772024320";
-      const MemberAFormer = require("../Fonctions/ListAFormer.js");
-      const role = message.guild.roles.cache.get(
-        RoleAformerTest || RoleAformerProd || RoleTestDEV
-      );
-      const members = MemberAFormer.MemberAFormer(role);
-
-      let messageContent = `**Membres ayant le rôle ${
-        role.name
-      } depuis moins de deux semaines :**\n${
-        members.lessThanTwoWeeks.join(", ") || "Aucun membre."
-      }\n\n`;
-      messageContent += `**Membres ayant le rôle ${
-        role.name
-      } depuis plus de deux semaines et moins d'un mois :**\n${
-        members.betweenTwoWeeksAndOneMonth.join(", ") || "Aucun membre."
-      }\n\n`;
-      messageContent += `**Membres ayant le rôle ${
-        role.name
-      } depuis plus d'un mois :**\n${
-        members.moreThanOneMonth.join(", ") || "Aucun membre."
-      }`;
-
-      message.channel.send(messageContent);
+      ListMembersRole.ListeRole(message);
+    } else if (message.content.startsWith(prefix + "List_role")) {
+    const args = message.content.split(' ');
+    const role_name = args[1];
+    List_role(role_name, message);
+    ListMembersRole.List_role(role_name); // Appel de la fonction List_role avec le nom du rôle en paramètre
     } else if (message.content.startsWith(prefix + "AddMembersList")) {
       //appel a la fonction uniquement sur la commande addMembersList
       getMembersInfo(message);
@@ -209,9 +191,12 @@ client.on(
       message.channel.send("Membres ajoutés et role mis à jour");
     } else if (message.content.startsWith(prefix + "deleteMembersList")) {
       console.log(message.content);
-      message.channel.send("Code serais");
-    } else if (
-      message.content.startsWith(prefix + "ManthysKitHelldrigeLooping")
+      message.channel.send("Code serais").then(msg => {
+        setTimeout(() => {
+          msg.delete();
+        }, 120000); // 5 minutes en millisecondes
+      }); ;
+    } else if ( message.content.startsWith(prefix + "ManthysKitHelldrigeLooping")
     ) {
       message
         .reply(
@@ -236,15 +221,27 @@ client.on(
                 await ListMembersGuild.deleteMembersTableau();
                 message.reply(
                   "Les fichiers JSON contenant les membres ont été supprimés."
-                );
+                ).then(msg => {
+                  setTimeout(() => {
+                    msg.delete();
+                  }, 120000); // 5 minutes en millisecondes
+                }); ;
               } catch (error) {
                 console.error(error);
                 message.reply(
                   "Une erreur est survenue lors de la suppression des fichiers JSON contenant les membres."
-                );
+                ).then(msg => {
+                  setTimeout(() => {
+                    msg.delete();
+                  }, 120000); // 5 minutes en millisecondes
+                }); ;
               }
             } else {
-              message.reply("Suppression annulée.");
+              message.reply("Suppression annulée.").then(msg => {
+                setTimeout(() => {
+                  msg.delete();
+                }, 120000); // 5 minutes en millisecondes
+              }); ;
             }
 
             collector.stop();
@@ -254,10 +251,18 @@ client.on(
             if (reason === "time") {
               confirmationMessage.reply(
                 "Le temps imparti pour répondre a expiré."
-              );
+              ).then(msg => {
+                setTimeout(() => {
+                  msg.delete();
+                }, 120000); // 5 minutes en millisecondes
+              }); ;
             }
           });
         });
+    }else if (message.content.startsWith(prefix + "saveRoles")) {
+      ListMembersRole.saveRoles(message.guild);
+      console.log("ListMembersRole savegarder");
+      message.channel.send("ListMembersRole savegarder");
     }
   },
   "message",
@@ -329,7 +334,11 @@ client.on(
 client.on("ready", () => {
   console.log(`Bot connecté ${client.user.tag}`);
   console.log(`Je suis membre de  ${client.guilds.cache.size} Serveurs`);
-  //once.getMembersInfo();
+ // DemarerBot.launch();
 });
+/*client.on('disconnect', () => {
+  console.log(`${client.guilds.cache.size}A craché tentative de connexion`);
+client.login(token);
+});*/
 
 client.login(token);
