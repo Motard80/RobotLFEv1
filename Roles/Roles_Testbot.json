@@ -1,0 +1,51 @@
+{
+  "ServerName": "Testbot",
+  "serverId": "1077880541161996390",
+  "RolesData": [
+    {
+      "Id": 1,
+      "NameRole": "@everyone",
+      "IdRole": "1077880541161996390"
+    },
+    {
+      "Id": 2,
+      "NameRole": "Bot",
+      "IdRole": "1077880742371131402"
+    },
+    {
+      "Id": 3,
+      "NameRole": "STAFF",
+      "IdRole": "1078995086936899614"
+    },
+    {
+      "Id": 4,
+      "NameRole": "MebreLFE",
+      "IdRole": "1080152056129650781"
+    },
+    {
+      "Id": 5,
+      "NameRole": "Developpeur",
+      "IdRole": "1082189265594761227"
+    },
+    {
+      "Id": 6,
+      "NameRole": "RoleNouvelleArrivantDev",
+      "IdRole": "1083494292133261312"
+    },
+    {
+      "Id": 7,
+      "NameRole": "RobotLFEv1",
+      "IdRole": "1084101281855066244"
+    },
+    {
+      "Id": 8,
+      "NameRole": "à former",
+      "IdRole": "1084113344451055676"
+    },
+    {
+      "Id": 9,
+      "NameRole": "Botnonpartager",
+      "IdRole": "1084860272050712597"
+    }
+  ]
+}

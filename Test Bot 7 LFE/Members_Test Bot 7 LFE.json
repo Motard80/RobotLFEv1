@@ -1,0 +1,107 @@
+{
+  "ServerName": "Test Bot 7 LFE",
+  "MembersData": [
+    {
+      "Pseudo": "Manthys",
+      "Tag": "Manthys#0946",
+      "Id": "182179130505297920",
+      "DateArrivee": "06/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Admin-testeur",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1071350139291189368",
+        "959380556582375464"
+      ]
+    },
+    {
+      "Pseudo": "GaëtanJ",
+      "Tag": "GaëtanJ#4612",
+      "Id": "275717572173758464",
+      "DateArrivee": "01/04/2022",
+      "Commentaire": "",
+      "Role": [
+        "Admin-testeur",
+        "Aforme",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1071350139291189368",
+        "1084126506881650688",
+        "959380556582375464"
+      ]
+    },
+    {
+      "Pseudo": "Kit",
+      "Tag": "Kit#1138",
+      "Id": "304972584552890371",
+      "DateArrivee": "06/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Admin-testeur",
+        "BOT",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1071350139291189368",
+        "1071826067544866927",
+        "959380556582375464"
+      ]
+    },
+    {
+      "Pseudo": "BOT LFE",
+      "Tag": "BOT LFE#6562",
+      "Id": "1071400248146153552",
+      "DateArrivee": "06/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Admin-testeur",
+        "BOT LFE",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1071350139291189368",
+        "1072193610205904950",
+        "959380556582375464"
+      ]
+    },
+    {
+      "Pseudo": "BotHelldrige",
+      "Tag": "BotHelldrige#2545",
+      "Id": "1074736441545994371",
+      "DateArrivee": "15/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "BOT",
+        "Botnonpartager",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1071826067544866927",
+        "1075365560570884170",
+        "959380556582375464"
+      ]
+    },
+    {
+      "Pseudo": "LFEBot",
+      "Tag": "LFEBot#1498",
+      "Id": "1079764030757019730",
+      "DateArrivee": "11/03/2023",
+      "Commentaire": "",
+      "Role": [
+        "BOT",
+        "Aforme",
+        "RobotLFEv1",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1071826067544866927",
+        "1084126506881650688",
+        "1084127930214522923",
+        "959380556582375464"
+      ]
+    }
+  ]
+}

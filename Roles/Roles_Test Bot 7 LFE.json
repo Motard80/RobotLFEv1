@@ -1,0 +1,41 @@
+{
+  "ServerName": "Test Bot 7 LFE",
+  "serverId": "959380556582375464",
+  "RolesData": [
+    {
+      "Id": 1,
+      "NameRole": "@everyone",
+      "IdRole": "959380556582375464"
+    },
+    {
+      "Id": 2,
+      "NameRole": "Admin-testeur",
+      "IdRole": "1071350139291189368"
+    },
+    {
+      "Id": 3,
+      "NameRole": "BOT",
+      "IdRole": "1071826067544866927"
+    },
+    {
+      "Id": 4,
+      "NameRole": "BOT LFE",
+      "IdRole": "1072193610205904950"
+    },
+    {
+      "Id": 5,
+      "NameRole": "Botnonpartager",
+      "IdRole": "1075365560570884170"
+    },
+    {
+      "Id": 6,
+      "NameRole": "Aforme",
+      "IdRole": "1084126506881650688"
+    },
+    {
+      "Id": 7,
+      "NameRole": "RobotLFEv1",
+      "IdRole": "1084127930214522923"
+    }
+  ]
+}

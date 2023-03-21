@@ -1,0 +1,287 @@
+{
+  "ServerName": "LFE - DEV",
+  "MembersData": [
+    {
+      "Pseudo": "Looping",
+      "Tag": "Looping#9695",
+      "Id": "136163704336023552",
+      "DateArrivee": "01/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Staff LFE",
+        "Opérateur LFE",
+        "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+        "Arma 3",
+        "@everyone"
+      ],
+      "RolesId": [
+        17,
+        21,
+        22,
+        31,
+        15
+      ]
+    },
+    {
+      "Pseudo": "Manthys",
+      "Tag": "Manthys#0946",
+      "Id": "182179130505297920",
+      "DateArrivee": "31/01/2023",
+      "Commentaire": "",
+      "Role": [
+        "~~~~~~~~ Communauté ~~~~~~~~",
+        "Staff LFE",
+        "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+        "Arma 3",
+        "@everyone"
+      ],
+      "RolesId": [
+        11,
+        17,
+        22,
+        31,
+        15
+      ]
+    },
+    {
+      "Pseudo": "MasterKebab27",
+      "Tag": "MasterKebab27#5803",
+      "Id": "229596808396013568",
+      "DateArrivee": "28/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "~~~~~~~~ Communauté ~~~~~~~~",
+        "Staff Arma 3",
+        "Opérateur LFE",
+        "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+        "Arma 3",
+        "@everyone"
+      ],
+      "RolesId": [
+        11,
+        14,
+        21,
+        22,
+        31,
+        15
+      ]
+    },
+    {
+      "Pseudo": "Carl-bot",
+      "Tag": "Carl-bot#1536",
+      "Id": "235148962103951360",
+      "DateArrivee": "31/01/2023",
+      "Commentaire": "",
+      "Role": [
+        "Bots",
+        "carl-bot",
+        "@everyone"
+      ],
+      "RolesId": [
+        20,
+        24,
+        15
+      ]
+    },
+    {
+      "Pseudo": "GaëtanJ",
+      "Tag": "GaëtanJ#4612",
+      "Id": "275717572173758464",
+      "DateArrivee": "04/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Développeur BOT",
+        "Corps expéditionnaire",
+        "Team externe",
+        "~~~~~~~~ Communauté ~~~~~~~~",
+        "Staff Arma 3",
+        "Opérateur LFE",
+        "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+        "Arma 3",
+        "Nouveaux arrivants",
+        "@everyone"
+      ],
+      "RolesId": [
+        1,
+        3,
+        8,
+        11,
+        14,
+        21,
+        22,
+        31,
+        36,
+        15
+      ]
+    },
+    {
+      "Pseudo": "Kit",
+      "Tag": "Kit#1138",
+      "Id": "304972584552890371",
+      "DateArrivee": "07/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Responsable Discord",
+        "~~~~~~~~ Communauté ~~~~~~~~",
+        "Staff LFE",
+        "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+        "@everyone"
+      ],
+      "RolesId": [
+        6,
+        11,
+        17,
+        22,
+        15
+      ]
+    },
+    {
+      "Pseudo": "Helldridge",
+      "Tag": "Helldridge#1350",
+      "Id": "342254501232771073",
+      "DateArrivee": "01/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Staff LFE",
+        "Opérateur LFE",
+        "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+        "Arma 3",
+        "@everyone"
+      ],
+      "RolesId": [
+        17,
+        21,
+        22,
+        31,
+        15
+      ]
+    },
+    {
+      "Pseudo": "IceThunder",
+      "Tag": "IceThunder#1515",
+      "Id": "378871457347928065",
+      "DateArrivee": "28/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "~~~~~~~~ Communauté ~~~~~~~~",
+        "Staff Arma 3",
+        "Opérateur LFE",
+        "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+        "Arma 3",
+        "Vétéran LFE",
+        "@everyone"
+      ],
+      "RolesId": [
+        11,
+        14,
+        21,
+        22,
+        31,
+        38,
+        15
+      ]
+    },
+    {
+      "Pseudo": "Ticket Tool",
+      "Tag": "Ticket Tool#4843",
+      "Id": "557628352828014614",
+      "DateArrivee": "31/01/2023",
+      "Commentaire": "",
+      "Role": [
+        "Ticket Tool",
+        "Bots",
+        "@everyone"
+      ],
+      "RolesId": [
+        18,
+        20,
+        15
+      ]
+    },
+    {
+      "Pseudo": "Reaction Roles",
+      "Tag": "Reaction Roles#5521",
+      "Id": "708096305477451846",
+      "DateArrivee": "31/01/2023",
+      "Commentaire": "",
+      "Role": [
+        "Reaction Roles",
+        "Bots",
+        "@everyone"
+      ],
+      "RolesId": [
+        13,
+        20,
+        15
+      ]
+    },
+    {
+      "Pseudo": "GitBot",
+      "Tag": "GitBot#8618",
+      "Id": "761269120691470357",
+      "DateArrivee": "04/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "Bots",
+        "GitBot",
+        "@everyone"
+      ],
+      "RolesId": [
+        20,
+        29,
+        15
+      ]
+    },
+    {
+      "Pseudo": "BOT LFE",
+      "Tag": "BOT LFE#6562",
+      "Id": "1071400248146153552",
+      "DateArrivee": "06/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "BOT LFE",
+        "Bots",
+        "@everyone"
+      ],
+      "RolesId": [
+        7,
+        20,
+        15
+      ]
+    },
+    {
+      "Pseudo": "LFE_Member_Manager",
+      "Tag": "LFE_Member_Manager#5838",
+      "Id": "1072444735018520616",
+      "DateArrivee": "07/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "LFE_Member_Manager",
+        "Bots",
+        "@everyone"
+      ],
+      "RolesId": [
+        9,
+        20,
+        15
+      ]
+    },
+    {
+      "Pseudo": "LFEBot",
+      "Tag": "LFEBot#1498",
+      "Id": "1079764030757019730",
+      "DateArrivee": "05/03/2023",
+      "Commentaire": "",
+      "Role": [
+        "RobotLFEv1",
+        "Bots",
+        "@everyone"
+      ],
+      "RolesId": [
+        4,
+        20,
+        15
+      ]
+    }
+  ]
+}

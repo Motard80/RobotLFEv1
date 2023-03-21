@@ -1,0 +1,201 @@
+{
+  "ServerName": "LFE - DEV",
+  "serverId": "1069915992848875590",
+  "RolesData": [
+    {
+      "Id": 1,
+      "NameRole": "Développeur BOT",
+      "IdRole": "1071371642099474442"
+    },
+    {
+      "Id": 2,
+      "NameRole": "JTAC",
+      "IdRole": "1069959315600973914"
+    },
+    {
+      "Id": 3,
+      "NameRole": "Corps expéditionnaire",
+      "IdRole": "1069981215110738043"
+    },
+    {
+      "Id": 4,
+      "NameRole": "RobotLFEv1",
+      "IdRole": "1081874753561821186"
+    },
+    {
+      "Id": 5,
+      "NameRole": "MG",
+      "IdRole": "1069955584847269888"
+    },
+    {
+      "Id": 6,
+      "NameRole": "Responsable Discord",
+      "IdRole": "1072436291318337546"
+    },
+    {
+      "Id": 7,
+      "NameRole": "BOT LFE",
+      "IdRole": "1072182854106218527"
+    },
+    {
+      "Id": 8,
+      "NameRole": "Team externe",
+      "IdRole": "1069936204772024320"
+    },
+    {
+      "Id": 9,
+      "NameRole": "LFE_Member_Manager",
+      "IdRole": "1072446461029126175"
+    },
+    {
+      "Id": 10,
+      "NameRole": "Artilleur",
+      "IdRole": "1069956575004983306"
+    },
+    {
+      "Id": 11,
+      "NameRole": "~~~~~~~~ Communauté ~~~~~~~~",
+      "IdRole": "1069938836991381515"
+    },
+    {
+      "Id": 12,
+      "NameRole": "TP",
+      "IdRole": "1069955905929609266"
+    },
+    {
+      "Id": 13,
+      "NameRole": "Reaction Roles",
+      "IdRole": "1069950620343218209"
+    },
+    {
+      "Id": 14,
+      "NameRole": "Staff Arma 3",
+      "IdRole": "1069931698676039770"
+    },
+    {
+      "Id": 15,
+      "NameRole": "@everyone",
+      "IdRole": "1069915992848875590"
+    },
+    {
+      "Id": 16,
+      "NameRole": "Eq. Tank",
+      "IdRole": "1069956535461097533"
+    },
+    {
+      "Id": 17,
+      "NameRole": "Staff LFE",
+      "IdRole": "1069937549746917376"
+    },
+    {
+      "Id": 18,
+      "NameRole": "Ticket Tool",
+      "IdRole": "1069926631008894980"
+    },
+    {
+      "Id": 19,
+      "NameRole": "AT",
+      "IdRole": "1069955621614522398"
+    },
+    {
+      "Id": 20,
+      "NameRole": "Bots",
+      "IdRole": "1069939566833844234"
+    },
+    {
+      "Id": 21,
+      "NameRole": "Opérateur LFE",
+      "IdRole": "1069936403489771610"
+    },
+    {
+      "Id": 22,
+      "NameRole": "~~~~~~~~ Arma 3 Milsim ~~~~~~~~",
+      "IdRole": "1069938679121973268"
+    },
+    {
+      "Id": 23,
+      "NameRole": "TL",
+      "IdRole": "1069955711657844886"
+    },
+    {
+      "Id": 24,
+      "NameRole": "carl-bot",
+      "IdRole": "1069939393609076880"
+    },
+    {
+      "Id": 25,
+      "NameRole": "Infirmier",
+      "IdRole": "1069955654271373332"
+    },
+    {
+      "Id": 26,
+      "NameRole": "Logisticien",
+      "IdRole": "1069956625105965106"
+    },
+    {
+      "Id": 27,
+      "NameRole": "SL",
+      "IdRole": "1069955810953789500"
+    },
+    {
+      "Id": 28,
+      "NameRole": "Eq. Véhicule",
+      "IdRole": "1069956367193997362"
+    },
+    {
+      "Id": 29,
+      "NameRole": "GitBot",
+      "IdRole": "1071417855851122793"
+    },
+    {
+      "Id": 30,
+      "NameRole": "Recrue",
+      "IdRole": "1071074409235886110"
+    },
+    {
+      "Id": 31,
+      "NameRole": "Arma 3",
+      "IdRole": "1069936107174764594"
+    },
+    {
+      "Id": 32,
+      "NameRole": "Pil. Hélico",
+      "IdRole": "1069956275565232298"
+    },
+    {
+      "Id": 33,
+      "NameRole": "Pil. Avion",
+      "IdRole": "1069956327541059664"
+    },
+    {
+      "Id": 34,
+      "NameRole": "Fusilier",
+      "IdRole": "1069955502286577666"
+    },
+    {
+      "Id": 35,
+      "NameRole": "PL",
+      "IdRole": "1069955826908938270"
+    },
+    {
+      "Id": 36,
+      "NameRole": "Nouveaux arrivants",
+      "IdRole": "1071381017396527194"
+    },
+    {
+      "Id": 37,
+      "NameRole": "Ingénieur",
+      "IdRole": "1069955686135513168"
+    },
+    {
+      "Id": 38,
+      "NameRole": "Vétéran LFE",
+      "IdRole": "1069979556326416394"
+    },
+    {
+      "Id": 39,
+      "NameRole": "Diplomate",
+      "IdRole": "1069936299177426944"
+    }
+  ]
+}

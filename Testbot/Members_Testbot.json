@@ -1,0 +1,100 @@
+{
+  "ServerName": "Testbot",
+  "MembersData": [
+    {
+      "Pseudo": "GaëtanJ",
+      "Tag": "GaëtanJ#4612",
+      "Id": "275717572173758464",
+      "DateArrivee": "22/02/2023",
+      "Commentaire": "",
+      "Role": [
+        "STAFF",
+        "Developpeur",
+        "RoleNouvelleArrivantDev",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1078995086936899614",
+        "1082189265594761227",
+        "1083494292133261312",
+        "1077880541161996390"
+      ]
+    },
+    {
+      "Pseudo": "IceThunder",
+      "Tag": "IceThunder#1515",
+      "Id": "378871457347928065",
+      "DateArrivee": "04/03/2023",
+      "Commentaire": "",
+      "Role": [
+        "STAFF",
+        "MebreLFE",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1078995086936899614",
+        "1080152056129650781",
+        "1077880541161996390"
+      ]
+    },
+    {
+      "Pseudo": "MrYolba",
+      "Tag": "MrYolba#3488",
+      "Id": "452844791173087232",
+      "DateArrivee": "03/03/2023",
+      "Commentaire": "",
+      "Role": [
+        "STAFF",
+        "MebreLFE",
+        "Developpeur",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1078995086936899614",
+        "1080152056129650781",
+        "1082189265594761227",
+        "1077880541161996390"
+      ]
+    },
+    {
+      "Pseudo": "BotHelldrige",
+      "Tag": "BotHelldrige#2545",
+      "Id": "1074736441545994371",
+      "DateArrivee": "13/03/2023",
+      "Commentaire": "",
+      "Role": [
+        "Botnonpartager",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1084860272050712597",
+        "1077880541161996390"
+      ]
+    },
+    {
+      "Pseudo": "LFEBot",
+      "Tag": "LFEBot#1498",
+      "Id": "1079764030757019730",
+      "DateArrivee": "11/03/2023",
+      "Commentaire": "",
+      "Role": [
+        "Bot",
+        "STAFF",
+        "MebreLFE",
+        "Developpeur",
+        "RoleNouvelleArrivantDev",
+        "RobotLFEv1",
+        "@everyone"
+      ],
+      "RolesId": [
+        "1077880742371131402",
+        "1078995086936899614",
+        "1080152056129650781",
+        "1082189265594761227",
+        "1083494292133261312",
+        "1084101281855066244",
+        "1077880541161996390"
+      ]
+    }
+  ]
+}
