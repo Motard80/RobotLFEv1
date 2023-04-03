@@ -1,0 +1,46 @@
+{
+  "ServerName": "Serve Deb bot",
+  "serverId": "1075799209749528676",
+  "RolesData": [
+    {
+      "Id": 1,
+      "NameRole": "@everyone",
+      "IdRole": "1075799209749528676"
+    },
+    {
+      "Id": 2,
+      "NameRole": "Dev Bot",
+      "IdRole": "1075799312044396626"
+    },
+    {
+      "Id": 3,
+      "NameRole": "Bot",
+      "IdRole": "1075799704153116703"
+    },
+    {
+      "Id": 4,
+      "NameRole": "Ahsoka bot",
+      "IdRole": "1075801820900884562"
+    },
+    {
+      "Id": 5,
+      "NameRole": "Helper",
+      "IdRole": "1076045834325590088"
+    },
+    {
+      "Id": 6,
+      "NameRole": "MODO",
+      "IdRole": "1076045948104478790"
+    },
+    {
+      "Id": 7,
+      "NameRole": "admin",
+      "IdRole": "1076414929298542663"
+    },
+    {
+      "Id": 8,
+      "NameRole": "RobotLFEv1",
+      "IdRole": "1080175910952652854"
+    }
+  ]
+}

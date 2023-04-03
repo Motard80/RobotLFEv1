@@ -4,19 +4,19 @@ const { Client, MessageEmbed } = require("discord.js");
 const client = new Client({ intents: 3276799 });
 const fs = require("fs");
 const MsgCleaner = require("../Fonctions/MsgCleanup.js");
-const {
-  token,
-  prefix,
-} = require("../Config/config.json");
+const { token, prefix } = require("../Config/config.json");
 const Fonctions = require("../Fonctions/fonction.js");
 const KickMember = require("../Fonctions/kickMembers.js");
 const InactifListe = require("../Fonctions/InactifListe.js");
 const ListAformer = require("../Fonctions/ListAFormer.js");
 const Ressources = require("../Ressources/liste_fonctions.json");
 const MembersGuild = require("../Fonctions/MembersGuilds.js");
-const ListMembersRole= require("../Fonctions/ListAFormer");
-const DemarerBot= require("../Fonctions/Launch");
-const Roles = require("../Fonctions/Roles")
+const ListMembersRole = require("../Fonctions/ListAFormer");
+const DemarerBot = require("../Fonctions/Launch");
+const Roles = require("../Fonctions/Roles");
+
+const Donner = require("../Log/FonctionLog.js");
+
 //commande de test de fonctionnement des differentes fonctions
 client.on("messageCreate", async (message) => {
   // Un message est posté
@@ -59,16 +59,15 @@ function getMembersInfo(message) {
     message.channel.send("Le fichier Members.json a été mis à jour.");
   });
 }
-client.on('messageCreate', (message) => {
-  if (message.content.startsWith(prefix + "Lance") ) {
+client.on("messageCreate", (message) => {
+  if (message.content.startsWith(prefix + "Lance")) {
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const command = args.shift().toLowerCase();
 
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-
-  if (command === 'lance') {
-    DemarerBot.launch(message);
+    if (command === "lance") {
+      DemarerBot.launch(message);
+    }
   }
-}
 });
 
 //Commandes du bot
@@ -94,9 +93,8 @@ client.on(
       Fonctions.EnvoieMessagePredef(message, Ressources.Recrue); // Recrue
     } else if (message.content.startsWith(prefix + "SOS")) {
       Fonctions.aide(message, Ressources); // Message d'aide
-    } else if(message.content.startsWith(prefix + "TestFiles")){
+    } else if (message.content.startsWith(prefix + "TestFiles")) {
       ListMembersRole.saveRoles(message.guild);
-
     } else if (message.content.startsWith(prefix + "listeMembres")) {
       Fonctions.ListeMembres(message); // Liste des membres MY.listeMembres
     } else if (message.content.startsWith(prefix + "listeRoles")) {
@@ -111,13 +109,13 @@ client.on(
       console.log(channelId);
       const channel = client.channels.cache.get(channelId);
       MsgCleaner.clearChannel(channel);
-      message.channel.send(
-        "Le channel " + channel.name + " a été supprimé avec succès."
-      ).then(msg => {
-        setTimeout(() => {
-          msg.delete();
-        }, 120000); // 5 minutes en millisecondes
-      }); ;
+      message.channel
+        .send("Le channel " + channel.name + " a été supprimé avec succès.")
+        .then((msg) => {
+          setTimeout(() => {
+            msg.delete();
+          }, 120000); // 5 minutes en millisecondes
+        });
     } else if (message.content.startsWith(prefix + "InactifListe")) {
       // Séparation de la commande et des arguments
       const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -149,38 +147,8 @@ client.on(
 
       // Exécute la fonction KickInactif pour expulser les membres inactifs
       await KickMember.execute(message, inactiveMembers);
-    } else if (message.content.startsWith(prefix + "listeAforme")) {
-      message.channel.send("Test1");
-      const roleIdTest = "10789950869368996";
-      const roleIdDev = "1084126506881650688";
-      const roleIdProd = "10789950869368998";
-      const moinsDe3Semaines = 1000 * 60 * 60 * 24 * 21; // 21 jours en millisecondes
-      const moinsDUnMois = 1000 * 60 * 60 * 24 * 30; // 30 jours en millisecondes
-      const moinsDeuxMois = 1000 * 60 * 60 * 24 * 60; // 60 jours en millisecondes
-      const liste = ListAformer.listeAformé(
-        roleIdTest || roleIdDev || roleIdProd,
-        moinsDe3Semaines,
-        moinsDUnMois,
-        moinsDeuxMois
-      );
-      if (liste.trim() !== "") {
-        message.channel.send(liste);
-        console.log(liste);
-      } else {
-        message.channel.send(
-          "Le contenu du message est vide, veuillez entrer un message valide."
-        );
-        console.log("Le contenu du message est vide, ");
-      }
-    } else if (message.content.startsWith(prefix + "ListMembersRole")) {
-      // Appel de la fonction depuis le fichier index.js
-      ListMembersRole.ListeRole(message);
-    } else if (message.content.startsWith(prefix + "List_role")) {
-    const args = message.content.split(' ');
-    const role_name = args[1];
-    List_role(role_name, message);
-    ListMembersRole.List_role(role_name); // Appel de la fonction List_role avec le nom du rôle en paramètre
-    }else if ( message.content.startsWith(prefix + "ManthysKitHelldrigeLoopingHades")
+    } else if (
+      message.content.startsWith(prefix + "ManthysKitHelldrigeLoopingHades")
     ) {
       message
         .reply(
@@ -203,29 +171,33 @@ client.on(
             if (reaction.emoji.name === "✅") {
               try {
                 await ListMembersGuild.deleteMembersTableau();
-                message.reply(
-                  "Les fichiers JSON contenant les membres ont été supprimés."
-                ).then(msg => {
-                  setTimeout(() => {
-                    msg.delete();
-                  }, 120000); // 5 minutes en millisecondes
-                }); ;
+                message
+                  .reply(
+                    "Les fichiers JSON contenant les membres ont été supprimés."
+                  )
+                  .then((msg) => {
+                    setTimeout(() => {
+                      msg.delete();
+                    }, 120000); // 5 minutes en millisecondes
+                  });
               } catch (error) {
                 console.error(error);
-                message.reply(
-                  "Une erreur est survenue lors de la suppression des fichiers JSON contenant les membres."
-                ).then(msg => {
-                  setTimeout(() => {
-                    msg.delete();
-                  }, 120000); // 5 minutes en millisecondes
-                }); ;
+                message
+                  .reply(
+                    "Une erreur est survenue lors de la suppression des fichiers JSON contenant les membres."
+                  )
+                  .then((msg) => {
+                    setTimeout(() => {
+                      msg.delete();
+                    }, 120000); // 5 minutes en millisecondes
+                  });
               }
             } else {
-              message.reply("Suppression annulée.").then(msg => {
+              message.reply("Suppression annulée.").then((msg) => {
                 setTimeout(() => {
                   msg.delete();
                 }, 120000); // 5 minutes en millisecondes
-              }); ;
+              });
             }
 
             collector.stop();
@@ -233,48 +205,80 @@ client.on(
 
           collector.on("end", (collected, reason) => {
             if (reason === "time") {
-              confirmationMessage.reply(
-                "Le temps imparti pour répondre a expiré."
-              ).then(msg => {
-                setTimeout(() => {
-                  msg.delete();
-                }, 120000); // 5 minutes en millisecondes
-              }); ;
+              confirmationMessage
+                .reply("Le temps imparti pour répondre a expiré.")
+                .then((msg) => {
+                  setTimeout(() => {
+                    msg.delete();
+                  }, 120000); // 5 minutes en millisecondes
+                });
             }
           });
         });
-    }else if (message.content.startsWith(prefix + "saveRolesOups")) {
-     
-      MembersGuild.saveRoles(message.guild);
-      console.log("ListMembersRole sauvegardée");
-      message.channel.send('Les données des rôles ont été ajoutées au tableau !');
-    }else if (message.content.startsWith(prefix + 'AddMembers')) {
+    } else if (message.content.startsWith(prefix + "AddMembers")) {
       const args = message.content.slice(prefix.length).trim().split(/ +/);
       const command = args.shift().toLowerCase();
-    
+
       const guild = message.guild;
-    
+
       // Vérifier que saveRoles retourne bien une promesse
-      if(MembersGuild.CreateMembers(guild)){
-        if(MembersGuild.saveRoles(message.guild)){
-          message.channel.send('Les membres ont été ajoutés avec succès !').then(msg => {
+      if (MembersGuild.CreateMembers(guild)) {
+        if (MembersGuild.saveRoles(message.guild)) {
+          message.channel
+            .send("Les membres ont été ajoutés avec succès !")
+            .then((msg) => {
+              setTimeout(() => {
+                msg.delete();
+              }, 120000);
+            }); // 2 minutes en millisecondes;
+        } else {
+          console.log(
+            " l'ajout des membres et la création du dossier et du fichier c'est bien passé."
+          );
+          message.channel
+            .send(
+              "l'ajout des membres et la création du dossier et du fichier c'est bien passé."
+            )
+            .then((msg) => {
+              setTimeout(() => {
+                msg.delete();
+              }, 120000);
+            });
+        }
+      } else {
+        console.log(
+          "Liste des roles Créer dans le dossier Roles ou mise a jour."
+        );
+        message.channel
+          .send("Liste des roles Créer dans le dossier Roles ou mise a jour.")
+          .then((msg) => {
             setTimeout(() => {
               msg.delete();
-            }, 120000); });// 2 minutes en millisecondes;
-        }else {
-          console.log(' l\'ajout des membres et la création du dossier et du fichier c\'est bien passé.');
-        message.channel.send('l\'ajout des membres et la création du dossier et du fichier c\'est bien passé.').then(msg => {
-          setTimeout(() => {
-            msg.delete();
-          }, 120000); });;}
-      }else {
-        console.log('Liste des roles Créer dans le dossier Roles ou mise a jour.');
-        message.channel.send('Liste des roles Créer dans le dossier Roles ou mise a jour.').then(msg => {
-          setTimeout(() => {
-            msg.delete();
-          }, 120000); });;}
+            }, 120000);
+          });
+      }
+    } else if (message.content.startsWith(prefix + 'ListMember')) {
+      const ServeurName = message.guild.name;
+      console.log(ServeurName +" index");
+       MembersGuild.ListRoles( ServeurName, message);
+    }else if (message.content.startsWith(prefix + 'RoleList')) {
+      const ServeurName = message.guild.name;
+      console.log(ServeurName +" index Fonction RoleList ");
+      await Roles.ListRole( message);
+    }else if (message.content.startsWith(prefix + 'showlogs')){
+      const logs = fs.readFileSync('../log/console.log', 'utf8')
+      .split('\n')
+      .filter((line) => line !== '')
+      .map((line) => {
+        const log = {
+          timestamp: new Date().toISOString(),
+          message: line
+        };
+        return log;
+      });
+    fs.writeFileSync('../log/logs.json', JSON.stringify(logs));
+    message.channel.send('Logs Sauvegarder!');
     }
-    
   },
   "message",
   async (message) => {
@@ -341,19 +345,22 @@ client.on(
   }
 );
 
-
-
-
-
 //Connexion du bot
 client.on("ready", () => {
   console.log(`Bot connecté ${client.user.tag}`);
   console.log(`Je suis membre de  ${client.guilds.cache.size} Serveurs`);
- // DemarerBot.launch();
+  
+//log();
+  //setInterval( log, 1 * 60 * 1000);
+  // DemarerBot.launch();
 });
-/*client.on('disconnect', () => {
-  console.log(`${client.guilds.cache.size}A craché tentative de connexion`);
-client.login(token);
-});*/
+//enregistrement systématic de tout console.logs 
+// Rediriger console.log() vers un fichier de logs
+
 
 client.login(token);
+/* La fonction Trie nécessite deux arguments: le message de Discord et le nom du rôle à trier.
+ Dans cet exemple, nous avons extrait le nom du rôle à partir de la commande en utilisant la méthode split
+  pour diviser la chaîne de commande en un tableau d'arguments. Le nom du rôle est ensuite stocké dans une 
+  variable appelée roleName.
+ Ensuite, nous passons le message de Discord et le nom du rôle à la fonction Trie dans l'objet MembersGuild.*/
